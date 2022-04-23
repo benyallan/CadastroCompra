@@ -12,4 +12,9 @@ class Product extends Model
     protected $fillable = [
         'description', 'unitaryValue'
     ];
+
+    public function orders()
+    {
+        return $this->belongsToMany(Order::class);
+    }
 }
