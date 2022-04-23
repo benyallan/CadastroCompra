@@ -14,7 +14,8 @@ class ProductFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'description' => $this->faker->sentence(),
+            'unitaryValue' => $this->faker->randomFloat(2),
         ];
     }
 }
