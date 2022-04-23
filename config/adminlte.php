@@ -45,12 +45,12 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
+    'logo' => '<b>Cadastro</b>COMPRA',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
-    'logo_img_alt' => 'AdminLTE',
+    'logo_img_alt' => 'CadastroCOMPRA',
 
     /*
     |--------------------------------------------------------------------------
@@ -228,7 +228,7 @@ return [
         // Navbar items:
         [
             'type'         => 'navbar-search',
-            'text'         => 'search',
+            'text'         => 'pesquisa',
             'topnav_right' => true,
         ],
         [
@@ -239,7 +239,7 @@ return [
         // Sidebar items:
         [
             'type' => 'sidebar-menu-search',
-            'text' => 'search',
+            'text' => 'pesquisa',
         ],
         [
             'text' => 'blog',
@@ -247,11 +247,11 @@ return [
             'can'  => 'manage-blog',
         ],
         [
-            'text'        => 'pages',
+            'text'        => 'Principal',
             'url'         => 'admin/pages',
             'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
+            'label'       => 0,
+            'label_color' => 'warning',
         ],
         ['header' => 'account_settings'],
         [
@@ -264,43 +264,24 @@ return [
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',
         ],
+        ['header' => 'Gerenciar'],
         [
-            'text'    => 'multilevel',
-            'icon'    => 'fas fa-fw fa-share',
-            'submenu' => [
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-                [
-                    'text'    => 'level_one',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-            ],
+            'text'    => 'Clientes',
+            'icon'    => 'fas fa-solid fa-users',
+            'icon_color'    => 'primary',
+            'url'     => '#',
+        ],
+        [
+            'text'    => 'Produtos',
+            'icon'    => 'fas fa-solid fa-box',
+            'icon_color'    => 'primary',
+            'url'  => '#',
+        ],
+        [
+            'text'    => 'Pedidos',
+            'icon'    => 'fas fa-solid fa-list',
+            'icon_color'    => 'primary',
+            'url'     => '#',
         ],
         ['header' => 'labels'],
         [
