@@ -16,7 +16,7 @@ class ClientFactory extends Factory
         return [
             'name' => $this->faker->name(),
             'email' => $this->faker->unique()->safeEmail(),
-            'email' => $this->faker->cpf(false),
+            'cpf' => $this->faker->cpf(false),
         ];
     }
 }

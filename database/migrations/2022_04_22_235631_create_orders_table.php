@@ -18,8 +18,6 @@ class CreateOrdersTable extends Migration
             $table->timestamp('date');
             $table->integer('amount');
             $table->foreignId('client_id')->constrained();
-            $table->foreignId('product_id')
-                ->references('number')->on('products');
             $table->timestamps();
         });
     }
