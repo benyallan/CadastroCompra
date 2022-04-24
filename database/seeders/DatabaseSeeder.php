@@ -17,8 +17,6 @@ class DatabaseSeeder extends Seeder
     {
         \App\Models\User::factory(10)->create();
 
-        $order = Order::factory(10)
-            ->has(Product::factory()->count(3))
-            ->create();
+        $order = Order::factory(10)->create();
     }
 }

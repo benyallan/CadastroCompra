@@ -281,7 +281,7 @@ return [
             'text'    => 'Pedidos',
             'icon'    => 'fas fa-solid fa-list',
             'icon_color'    => 'primary',
-            'url'     => '#',
+            'route'     => 'order.index',
         ],
         ['header' => 'labels'],
         [
