@@ -1,36 +1,36 @@
 @extends('adminlte::page')
 
-@section('title', 'Clientes')
+@section('title', 'Produtos')
 
 @section('content_header')
-    <h1><strong>{{$client->name}}</strong></h1>
+    <h1><strong>Produto</strong></h1>
 @stop
 
 @section('content')
     <div class="d-flex flex-row-reverse bd-highlight">
         <a class="btn btn-primary btn-sm "
-            href="{{route('client.index')}}" role="button">
+            href="{{route('product.index')}}" role="button">
             Voltar
         </a>
     </div>
     <div class="container">
         <div class="row">
-            <label for="inputName" class="col-sm-1-12 col-form-label">
-                <strong>ID: </strong>{{$client->id}}
+            <label class="col-sm-1-12 col-form-label">
+                <strong>ID: </strong>{{$product->id}}
             </label>
         </div>
         <div class="row">
-            <label for="name" class="col-sm-1-12 col-form-label">
-                <strong>CPF: </strong>{{$client->cpf}}
+            <label class="col-sm-1-12 col-form-label">
+                <strong>Descrição: </strong>{{$product->description}}
             </label>
         </div>
         <div class="row">
-            <label for="cpf" class="col-sm-1-12 col-form-label">
-                <strong>E-mail: </strong>{{$client->email}}
+            <label class="col-sm-1-12 col-form-label">
+                <strong>Valor Unitário: </strong>{{$product->unitaryValue}}
             </label>
         </div>
         <a class="btn btn-primary"
-            href="{{route('client.edit', $client->id)}}" role="button">
+            href="{{route('product.edit', $product->id)}}" role="button">
             Editar
         </a>
     </div>

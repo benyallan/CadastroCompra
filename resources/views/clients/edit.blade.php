@@ -26,7 +26,7 @@
         <form action="{{route('client.update', $client->id)}}" method="POST">
             @csrf @method('PUT')
             <div class="form-group row">
-                <label for="inputName" class="col-sm-1-12 col-form-label">
+                <label class="col-sm-1-12 col-form-label">
                     {{$client->id}}
                 </label>
             </div>

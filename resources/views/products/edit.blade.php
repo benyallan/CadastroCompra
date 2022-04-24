@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'productes')
+@section('title', 'Produtos')
 
 @section('content_header')
     <h1><strong>Editando</strong></h1>
@@ -26,7 +26,7 @@
         <form action="{{route('product.update', $product->id)}}" method="POST">
             @csrf @method('PUT')
             <div class="form-group row">
-                <label for="id" class="col-sm-1-12 col-form-label">
+                <label class="col-sm-1-12 col-form-label">
                     {{$product->id}}
                 </label>
             </div>

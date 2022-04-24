@@ -5,7 +5,7 @@
 @section('content_header')
     <h1>Produtos</h1>
     <a name="" id="" class="btn btn-primary"
-        href="{{route('client.create')}}" role="button">
+        href="{{route('product.create')}}" role="button">
         Novo
     </a>
 @stop
