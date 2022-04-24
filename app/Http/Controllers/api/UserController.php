@@ -51,7 +51,8 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        $user->update($request->all());
+        return new ResourcesUser($user);
     }
 
     /**
@@ -62,6 +63,7 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        $user->delete();
+        return json_encode(['message' => 'apagado com sucesso!']);
     }
 }
