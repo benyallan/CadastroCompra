@@ -13,7 +13,7 @@ class UpdateClientRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,9 @@ class UpdateClientRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required',
+            'cpf' => 'required|max:11',
+            'email' => 'required|email',
         ];
     }
 }

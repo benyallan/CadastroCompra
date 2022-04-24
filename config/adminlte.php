@@ -269,13 +269,13 @@ return [
             'text'    => 'Clientes',
             'icon'    => 'fas fa-solid fa-users',
             'icon_color'    => 'primary',
-            'url'     => '#',
+            'route'     => 'client.index',
         ],
         [
             'text'    => 'Produtos',
             'icon'    => 'fas fa-solid fa-box',
             'icon_color'    => 'primary',
-            'url'  => '#',
+            'route'     => 'product.index',
         ],
         [
             'text'    => 'Pedidos',
