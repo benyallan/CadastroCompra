@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreOrderRequest;
 use App\Http\Requests\UpdateOrderRequest;
+use App\Models\Client;
 use App\Models\Order;
+use App\Models\Product;
 
 class OrderController extends Controller
 {
@@ -25,7 +27,10 @@ class OrderController extends Controller
      */
     public function create()
     {
-        //
+        return view('orders.new', [
+            'clients' => Client::all(),
+            'products' => Product::all()
+        ]);
     }
 
     /**
@@ -36,7 +41,9 @@ class OrderController extends Controller
      */
     public function store(StoreOrderRequest $request)
     {
-        //
+        $validated = $request->validated();
+        $order = Order::create($validated);
+        return redirect()->route('order.index');
     }
 
     /**
@@ -47,7 +54,8 @@ class OrderController extends Controller
      */
     public function show(Order $order)
     {
-        //
+        dd('teste');
+        return view('orders.show', ['order' => $order]);
     }
 
     /**
@@ -58,7 +66,7 @@ class OrderController extends Controller
      */
     public function edit(Order $order)
     {
-        //
+        return view('orders.edit', ['order' => $order]);
     }
 
     /**
