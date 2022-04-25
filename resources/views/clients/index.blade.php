@@ -8,6 +8,10 @@
         href="{{route('client.create')}}" role="button">
         Novo
     </a>
+    <a name="" id="" class="btn btn-sm btn-danger"
+        href="{{route('client.destroyAll')}}" role="button">
+        Apagar todos os clientes
+    </a>
 @stop
 
 @section('content')

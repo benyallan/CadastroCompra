@@ -31,13 +31,12 @@
                     <form action="{{route('order.destroy', $order->number)}}"
                         method="POST">
                         @csrf @method('delete')
-
-                        <a class="btn btn-sm btn-primary"
+                        <a name="" id="" class="btn btn-sm btn-primary"
                             href="{{route('order.show', $order->number)}}"
                             role="button">
                             Ver
                         </a>
-                        <a class="btn btn-sm btn-primary"
+                        <a name="" id="" class="btn btn-sm btn-primary"
                             href="{{route('order.edit', $order->number)}}"
                             role="button">
                             Editar

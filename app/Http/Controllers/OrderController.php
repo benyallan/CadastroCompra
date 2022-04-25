@@ -54,7 +54,6 @@ class OrderController extends Controller
      */
     public function show(Order $order)
     {
-        dd('teste');
         return view('orders.show', ['order' => $order]);
     }
 
@@ -66,6 +65,7 @@ class OrderController extends Controller
      */
     public function edit(Order $order)
     {
+        dd('edit');
         return view('orders.edit', ['order' => $order]);
     }
 
@@ -78,7 +78,7 @@ class OrderController extends Controller
      */
     public function update(UpdateOrderRequest $request, Order $order)
     {
-        //
+        dd('update');
     }
 
     /**
@@ -89,6 +89,6 @@ class OrderController extends Controller
      */
     public function destroy(Order $order)
     {
-        //
+        dd('delete');
     }
 }
