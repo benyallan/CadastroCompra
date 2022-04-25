@@ -11,6 +11,20 @@ class ClientPolicy
     use HandlesAuthorization;
 
     /**
+     * Perform pre-authorization checks.
+     *
+     * @param  \App\Models\User  $user
+     * @param  string  $ability
+     * @return void|bool
+     */
+    public function before(User $user, $ability)
+    {
+        if ($user->isSuper()) {
+            return true;
+        }
+    }
+
+    /**
      * Determine whether the user can view any models.
      *
      * @param  \App\Models\User  $user
@@ -18,7 +32,7 @@ class ClientPolicy
      */
     public function viewAny(User $user)
     {
-        //
+        return $user->hasPermission('client.index');
     }
 
     /**
@@ -30,7 +44,7 @@ class ClientPolicy
      */
     public function view(User $user, Client $client)
     {
-        //
+        return $user->hasPermission('client.show');
     }
 
     /**
@@ -41,7 +55,7 @@ class ClientPolicy
      */
     public function create(User $user)
     {
-        //
+        return $user->hasPermission('client.store');
     }
 
     /**
@@ -53,7 +67,7 @@ class ClientPolicy
      */
     public function update(User $user, Client $client)
     {
-        //
+        return $user->hasPermission('client.store');
     }
 
     /**
@@ -65,7 +79,19 @@ class ClientPolicy
      */
     public function delete(User $user, Client $client)
     {
-        //
+        return $user->hasPermission('client.delete');
+    }
+
+    /**
+     * Determine whether the user can delete all in the model.
+     *
+     * @param  \App\Models\User  $user
+     * @param  \App\Models\Client  $client
+     * @return \Illuminate\Auth\Access\Response|bool
+     */
+    public function deleteAll(User $user, Client $client)
+    {
+        return $user->hasPermission('client.deleteAll');
     }
 
     /**
