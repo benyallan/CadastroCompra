@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\Product as ResourcesProduct;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class ProductController extends Controller
 {
@@ -66,6 +67,21 @@ class ProductController extends Controller
         $product->delete();
         return response()->json([
             'message' => 'Apagado com sucesso'
+        ]);
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\Product  $product
+     * @return \Illuminate\Http\Response
+     */
+    public function destroyAll()
+    {
+        Gate::authorize('deleteAll', Product::class);
+        Product::truncate();
+        return response()->json([
+            'message' => 'Todos os registros foram excluídos'
         ]);
     }
 }

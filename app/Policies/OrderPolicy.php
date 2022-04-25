@@ -11,6 +11,20 @@ class OrderPolicy
     use HandlesAuthorization;
 
     /**
+     * Perform pre-authorization checks.
+     *
+     * @param  \App\Models\User  $user
+     * @param  string  $ability
+     * @return void|bool
+     */
+    public function before(User $user, $ability)
+    {
+        if ($user->isSuper()) {
+            return true;
+        }
+    }
+
+    /**
      * Determine whether the user can view any models.
      *
      * @param  \App\Models\User  $user
@@ -18,7 +32,7 @@ class OrderPolicy
      */
     public function viewAny(User $user)
     {
-        //
+        return $user->hasPermission('order.index');
     }
 
     /**
@@ -30,7 +44,7 @@ class OrderPolicy
      */
     public function view(User $user, Order $order)
     {
-        //
+        return $user->hasPermission('order.show');
     }
 
     /**
@@ -41,7 +55,7 @@ class OrderPolicy
      */
     public function create(User $user)
     {
-        //
+        return $user->hasPermission('order.store');
     }
 
     /**
@@ -53,7 +67,7 @@ class OrderPolicy
      */
     public function update(User $user, Order $order)
     {
-        //
+        return $user->hasPermission('order.update');
     }
 
     /**
@@ -65,7 +79,19 @@ class OrderPolicy
      */
     public function delete(User $user, Order $order)
     {
-        //
+        return $user->hasPermission('order.delete');
+    }
+
+    /**
+     * Determine whether the user can delete all in the model.
+     *
+     * @param  \App\Models\User  $user
+     * @param  \App\Models\Client  $client
+     * @return \Illuminate\Auth\Access\Response|bool
+     */
+    public function deleteAll(User $user, Order $order)
+    {
+        return $user->hasPermission('client.deleteAll');
     }
 
     /**

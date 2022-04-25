@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\User as ResourcesUser;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class UserController extends Controller
 {
@@ -65,5 +66,20 @@ class UserController extends Controller
     {
         $user->delete();
         return response()->json(['message' => 'apagado com sucesso!']);
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\User  $user
+     * @return \Illuminate\Http\Response
+     */
+    public function destroyAll()
+    {
+        Gate::authorize('deleteAll', User::class);
+        User::truncate();
+        return response()->json([
+            'message' => 'Todos os registros foram excluídos'
+        ]);
     }
 }
