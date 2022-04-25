@@ -3,7 +3,8 @@
 use App\Http\Controllers\api\UserController;
 use App\Http\Controllers\api\AuthController;
 use App\Http\Controllers\api\ClientController;
-use App\Http\Controllers\ProductController;
+use App\Http\Controllers\api\OrderController;
+use App\Http\Controllers\api\ProductController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -42,6 +43,9 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
     // Routes for manage products
     Route::apiResource('product', ProductController::class);
+
+    // Routes for manage orders
+    Route::apiResource('order', OrderController::class);
 
     // API route for logout user
     Route::post(
