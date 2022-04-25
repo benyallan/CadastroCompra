@@ -17,6 +17,7 @@ class OrderController extends Controller
      */
     public function index()
     {
+        Gate::authorize('viewAny', Order::class);
         return ResourcesOrder::collection(Order::all());
     }
 
@@ -28,6 +29,7 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
+        Gate::authorize('create', Order::class);
         $order = Order::create($request->all());
         return new ResourcesOrder($order);
     }
@@ -40,6 +42,7 @@ class OrderController extends Controller
      */
     public function show(Order $order)
     {
+        Gate::authorize('view', $order);
         return new ResourcesOrder($order);
     }
 
@@ -52,6 +55,7 @@ class OrderController extends Controller
      */
     public function update(Request $request, Order $order)
     {
+        Gate::authorize('update', $order);
         $order->update($request->all());
         return new ResourcesOrder($order);
     }
@@ -64,6 +68,7 @@ class OrderController extends Controller
      */
     public function destroy(Order $order)
     {
+        Gate::authorize('delete', $order);
         $order->delete();
         return response()->json([
             'message' => 'Apagado com sucesso'

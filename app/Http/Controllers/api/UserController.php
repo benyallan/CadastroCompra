@@ -17,6 +17,7 @@ class UserController extends Controller
      */
     public function index()
     {
+        Gate::authorize('viewAny', User::class);
         return ResourcesUser::collection(User::all());
     }
 
@@ -28,6 +29,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        Gate::authorize('create', User::class);
         $user = User::create($request->all());
         return new ResourcesUser($user);
     }
@@ -40,6 +42,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
+        Gate::authorize('view', $user);
         return new ResourcesUser($user);
     }
 
@@ -52,6 +55,7 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
+        Gate::authorize('update', $user);
         $user->update($request->all());
         return new ResourcesUser($user);
     }
@@ -64,6 +68,7 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
+        Gate::authorize('delete', $user);
         $user->delete();
         return response()->json(['message' => 'apagado com sucesso!']);
     }

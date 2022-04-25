@@ -17,6 +17,7 @@ class ProductController extends Controller
      */
     public function index()
     {
+        Gate::authorize('viewAny', Product::class);
         return ResourcesProduct::collection(Product::all());
     }
 
@@ -28,6 +29,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        Gate::authorize('create', Product::class);
         $product = Product::create($request->all());
         return new ResourcesProduct($product);
     }
@@ -40,6 +42,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
+        Gate::authorize('view', $product);
         return new ResourcesProduct($product);
     }
 
@@ -52,6 +55,7 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
+        Gate::authorize('update', $product);
         $product->update($request->all());
         return new ResourcesProduct($product);
     }
@@ -64,6 +68,7 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
+        Gate::authorize('delete', $product);
         $product->delete();
         return response()->json([
             'message' => 'Apagado com sucesso'
